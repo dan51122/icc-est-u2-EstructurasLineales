@@ -1,31 +1,33 @@
 package controllers;
 import java.util.EmptyStackException;
-import models.Node;
+import models.NodeGeneric;
 
-public class Stack {
-    private Node top;       //Nodo encima de la pila
+public class StackG <T> {
+    private NodeGeneric<T> top;
+    private int size;
 
-    public Stack(){
-        this.top = null;
+    public StackG (){
+        this.top =null;
+        this.size = 0;
     }
 
-    public void push (int numeros){
-        Node newNode = new Node(numeros);
+    public void push (T numeros){
+        NodeGeneric<T> newNode = new NodeGeneric<>(numeros);
         newNode.setNext(top);
         top = newNode;
     }
 
-    public int pop(){
+    public T pop(){
         if (isEmpty()){
             throw new EmptyStackException();
         }
-        int value = top.getValue();
+        T value = top.getValue();
         top = top.getNext();
 
         return value;
     }
 
-    public int peek(){
+    public T peek(){
         if (isEmpty()){
             throw new EmptyStackException();
         }
@@ -37,10 +39,10 @@ public class Stack {
     }
 
     public void printStack(){
-        Node aux = top;
+        NodeGeneric<T> aux = top;
         System.out.print(" | ");
         while (aux != null){
-            int value = aux.getValue();
+            T value = aux.getValue();
             aux = aux.getNext();
 
             System.out.print(value + " | ");
@@ -48,12 +50,13 @@ public class Stack {
         System.out.println("");
     }
     public int size(){
-        Node aux = top;
-        int tamanio =0;
+        NodeGeneric<T> aux = top;
+        size =0;
         while (aux != null){
             aux = aux.getNext();
-            tamanio+=1;
+            size+=1;
         }
-        return tamanio;
+        return size;
     }
+
 }
