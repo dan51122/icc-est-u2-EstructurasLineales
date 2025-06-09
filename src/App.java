@@ -43,7 +43,18 @@ public class App {
         System.out.println("Persona atendida -> " + colaPersonas.remove());
         System.out.println("Tam = " + colaPersonas.size());
         colaPersonas.printCola();
-        Persona pB = colaPersonas.findByName("Juan");
-        
+        String pB = colaPersonas.findByName("Juan");
+        if(pB == null){
+        System.out.println("Persona no encontrada");
+        }else {
+        System.out.println("Persona encontrada -> " + pB != null);
+        }
+        String pE = colaPersonas.deleteByName("Juan");
+
+          if(pB == null){
+        System.out.println("Persona no encontrada");
+        }else {
+        System.out.println("Persona eliminada -> " + pE != null);
+        }
     }
 }

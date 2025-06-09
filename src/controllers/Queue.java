@@ -7,7 +7,7 @@ import models.Node;
 public class Queue {
     private Node primero;
     private Node ultimo;
-    private int size;
+    private int size=0;
 
     public Queue (){
         this.primero = null;

@@ -18,8 +18,4 @@ public class Persona{
     public String toString() {
         return nombre;
     }
-
-    public void findByName(String nombre){
-
-    }
 }
